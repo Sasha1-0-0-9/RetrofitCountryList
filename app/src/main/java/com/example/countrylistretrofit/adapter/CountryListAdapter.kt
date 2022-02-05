@@ -39,6 +39,7 @@ class CountryListAdapter(val activity: Activity): RecyclerView.Adapter<CountryLi
     }
 
     class MyViewHolder(view : View): RecyclerView.ViewHolder(view){
+        val flagImage = view.flagImage
         val tvName = view.tvName
         val tvCapital = view.tvCapital
         val tvRegion = view.tvRegion
@@ -47,6 +48,9 @@ class CountryListAdapter(val activity: Activity): RecyclerView.Adapter<CountryLi
             tvName.text = data.name
             tvCapital.text = "Capital: "+data.capital
             tvRegion.text = "Region: "+data.region
+
+            GlideToVectorYou.justLoadImage(activity, Uri.parse(data.flag), flagImage)
+
         }
     }
 }

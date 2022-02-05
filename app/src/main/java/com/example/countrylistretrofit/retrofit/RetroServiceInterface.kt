@@ -6,6 +6,6 @@ import retrofit2.http.GET
 
 interface RetroServiceInterface {
 
-    @GET("v3.1/all")
+    @GET("v2/all")
     fun getCountryList(): Call<List<Country>>
 }

@@ -15,7 +15,6 @@ class CountryListAdapter(val activity: Activity): RecyclerView.Adapter<CountryLi
 
     private var countryList: List<Country>? = null
 
-
     fun setCountryList(countryList: List<Country>?) {
         this.countryList = countryList
     }

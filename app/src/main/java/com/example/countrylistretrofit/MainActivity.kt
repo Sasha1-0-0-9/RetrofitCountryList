@@ -9,9 +9,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.countrylistretrofit.adapter.CountryListAdapter
 import com.example.countrylistretrofit.viewmodel.MainActivityViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
     lateinit var recyclerAdapter: CountryListAdapter
+
+    private val viewModel by viewModel<MainActivityViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        val viewModel: MainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
         viewModel.getLiveDataObserver().observe(this, Observer {
             if(it != null) {
                 recyclerAdapter.setCountryList(it)
